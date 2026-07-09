@@ -576,35 +576,56 @@ Extreme values are excluded only from the visualization and are analyzed separat
 
 # ── Chart 8 . Correlation Check: Delivery Time vs. Review Score (Scatter Plot) ─────────────
 
-merged_data = orders_clean.merge(reviews_clean, on="order_id", how="left")
+# merged_data = orders_clean.merge(reviews_clean, on="order_id", how="left")
 
-delivered_orders = merged_data[
-    (merged_data["order_status"] == "delivered")
-    & (merged_data["order_delivered_customer_date"].notna())
-].copy()
+# delivered_orders = merged_data[
+#     (merged_data["order_status"] == "delivered")
+#     & (merged_data["order_delivered_customer_date"].notna())
+# ].copy()
 
-delivered_orders["delivery_delay_days"] = (
-    delivered_orders["order_delivered_customer_date"]
-    - delivered_orders["order_estimated_delivery_date"]
-).dt.days
+# delivered_orders["delivery_delay_days"] = (
+#     delivered_orders["order_delivered_customer_date"]
+#     - delivered_orders["order_estimated_delivery_date"]
+# ).dt.days
 
-delivered_orders = delivered_orders.dropna(
-    subset=["delivery_delay_days", "review_score"]
-)
+# delivered_orders = delivered_orders.dropna(
+#     subset=["delivery_delay_days", "review_score"]
+# )
 
-fig, ax = plt.subplots(figsize=(10, 6))
+# correlation = delivered_orders["delivery_delay_days"].corr(
+#     delivered_orders["review_score"]
+# )
 
-ax.scatter(
-    data=delivered_orders, x="delivery_delay_days", y="review_score", alpha=0.2, s=15
-)
+# fig, ax = plt.subplots(figsize=(10, 6))
 
-ax.set_title("Delivery Delay vs Review Score", fontsize=14, fontweight="bold", pad=20)
-ax.set_xlabel("Delivery Delay (Days)", fontsize=12)
-ax.set_ylabel("Review Score", fontsize=12)
+# ax.scatter(
+#     data=delivered_orders, x="delivery_delay_days", y="review_score", alpha=0.2, s=15
+# )
 
-ax.set_yticks([1, 2, 3, 4, 5])
+# fig.text(
+#     0.75,
+#     0.95,
+#     f"Pearson r: {correlation:.2f}",
+#     fontsize=14,
+#     fontweight="bold",
+#     verticalalignment="center",
+#     bbox=dict(
+#         boxstyle="round,pad=0.5",
+#         facecolor="lightyellow",
+#         edgecolor="darkred",
+#         linewidth=2,
+#         alpha=0.9,
+#     ),
+# )
 
-ax.grid(alpha=0.3)
+# ax.set_title("Delivery Delay vs Review Score", fontsize=14, fontweight="bold", pad=20)
+# ax.set_xlabel("Delivery Delay (Days)", fontsize=12)
+# ax.set_ylabel("Review Score", fontsize=12)
 
-plt.tight_layout()
-plt.show()
+# ax.set_yticks([1, 2, 3, 4, 5])
+
+# ax.grid(alpha=0.3)
+
+# plt.tight_layout()
+# plt.savefig("plots/delivery_delay_vs_review_score.png", dpi=150)
+# plt.show()

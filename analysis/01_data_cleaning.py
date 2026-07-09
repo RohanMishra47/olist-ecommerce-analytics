@@ -30,15 +30,13 @@ Outputs:
 Project Pipeline:
     01_data_cleaning.py
         ↓
-    02_sales_eda.py
+    02_eda.py
         ↓
-    03_logistics_eda.py
+    03_delivery_outlier_investigation.py
         ↓
-    04_delivery_outlier_investigation.py
+    04_customer_analysis.py
         ↓
-    05_customer_analysis.py
-        ↓
-    06_advanced_analysis.py
+    05_advanced_analysis.py
 ================================================================================
 """
 
