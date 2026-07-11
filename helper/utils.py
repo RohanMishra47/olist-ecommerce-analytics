@@ -6,15 +6,26 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, "olist_ecommerce.db")
 
 
-def run_query(title, sql):
+def run_query(title, sql, export_csv=False, filename=None, preview_rows=10):
     conn = sqlite3.connect(DB_PATH)
 
     print(f"\n{'='*55}")
-    print(f"{title}")
+    print(title)
     print(f"{'='*55}")
 
     df = pd.read_sql_query(sql, conn)
-    print(df.to_string(index=False))
+
+    if export_csv:
+        if filename is None:
+            raise ValueError("Please provide a filename when export_csv=True.")
+
+        df.to_csv(f"exports/{filename}", index=False)
+
+        print(f"Successfully exported {len(df):,} rows to exports/{filename}\n")
+        print(f"Preview (First {preview_rows} rows):")
+        print(df.head(preview_rows).to_string(index=False))
+    else:
+        print(df.to_string(index=False))
 
     conn.close()
 
