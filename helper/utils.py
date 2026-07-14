@@ -19,9 +19,9 @@ def run_query(title, sql, export_csv=False, filename=None, preview_rows=10):
         if filename is None:
             raise ValueError("Please provide a filename when export_csv=True.")
 
-        df.to_csv(f"exports/{filename}", index=False)
+        df.to_csv(f"exports/powerbi/{filename}", index=False)
 
-        print(f"Successfully exported {len(df):,} rows to exports/{filename}\n")
+        print(f"Successfully exported {len(df):,} rows to exports/powerbi/{filename}\n")
         print(f"Preview (First {preview_rows} rows):")
         print(df.head(preview_rows).to_string(index=False))
     else:
