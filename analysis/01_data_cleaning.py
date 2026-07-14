@@ -34,9 +34,11 @@ Project Pipeline:
         ↓
     03_delivery_outlier_investigation.py
         ↓
-    04_customer_analysis.py
+    SQL Analysis (Phase 3)
         ↓
-    05_advanced_analysis.py
+    export_powerbi_data.py
+        ↓
+    Power BI Dashboard
 ================================================================================
 """
 
