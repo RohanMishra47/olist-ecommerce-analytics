@@ -29,9 +29,4 @@ GROUP BY o.order_status
 ORDER BY total_orders DESC;
 """
 
-run_query(
-    "Order Status Distribution and Review Scores",
-    sql,
-    export_csv=True,
-    filename="order_status_avg_review.csv",
-)
+run_query("Order Status Distribution and Review Scores", sql)

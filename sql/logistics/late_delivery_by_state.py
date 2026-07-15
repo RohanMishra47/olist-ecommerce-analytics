@@ -32,8 +32,9 @@ filtered_deliveries AS (
     SELECT *
     FROM delivery_delays
     WHERE NOT (
-        delivery_delay_days > 100
-        AND review_score = 5
+        (delivery_delay_days > 100 AND review_score = 5)
+        OR
+        (delivery_delay_days < -100 AND review_score = 1)
     )
 )
 
@@ -60,9 +61,4 @@ GROUP BY customer_state
 ORDER BY late_delivery_rate_percentage DESC;
 """
 
-run_query(
-    "Late Delivery Rate by State",
-    sql,
-    export_csv=True,
-    filename="late_delivery_by_state.csv",
-)
+run_query("Late Delivery Rate by State", sql)

@@ -29,9 +29,4 @@ ORDER BY
     total_delivered_orders DESC;
 """
 
-run_query(
-    "Average Review Score by Product Category",
-    sql,
-    export_csv=True,
-    filename="avg_review_by_category.csv",
-)
+run_query("Average Review Score by Product Category", sql)

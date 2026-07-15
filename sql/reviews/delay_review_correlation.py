@@ -55,9 +55,4 @@ SELECT
 FROM filtered_data;
 """
 
-run_query(
-    "Delivery Delay vs Review Score Correlation (Outliers Removed)",
-    sql,
-    export_csv=True,
-    filename="delay_review_correlation.csv",
-)
+run_query("Delivery Delay vs Review Score Correlation (Outliers Removed)", sql)

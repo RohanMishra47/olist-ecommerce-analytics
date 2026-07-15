@@ -75,10 +75,4 @@ GROUP BY o.order_month
 ORDER BY o.order_month;
 """
 
-run_query(
-    "New vs Returning Customer Revenue by Month",
-    sql,
-    export_csv=True,
-    filename="new_vs_returning_revenue.csv",
-    preview_rows=10,
-)
+run_query("New vs Returning Customer Revenue by Month", sql, preview_rows=10)

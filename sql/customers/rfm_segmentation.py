@@ -40,4 +40,4 @@ ORDER BY
     monetary DESC;
 """
 
-run_query("RFM Metrics by Customer", sql, export_csv=True, filename="customer_rfm.csv")
+run_query("RFM Metrics by Customer", sql)

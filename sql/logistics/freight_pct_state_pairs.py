@@ -36,8 +36,5 @@ ORDER BY freight_percentage_of_price DESC;
 """
 
 run_query(
-    "Average Freight Value as % of Product Price by Customer-Seller State Pair",
-    sql,
-    export_csv=True,
-    filename="freight_pct_state_pairs.csv",
+    "Average Freight Value as % of Product Price by Customer-Seller State Pair", sql
 )

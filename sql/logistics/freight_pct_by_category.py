@@ -28,9 +28,4 @@ GROUP BY p.product_category_name
 ORDER BY freight_percentage_of_price DESC;
 """
 
-run_query(
-    "Average Freight Value as % of Product Price by Category",
-    sql,
-    export_csv=True,
-    filename="freight_pct_by_category.csv",
-)
+run_query("Average Freight Value as % of Product Price by Category", sql)

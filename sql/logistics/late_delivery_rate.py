@@ -30,8 +30,9 @@ filtered_deliveries AS (
     SELECT *
     FROM delivery_delays
     WHERE NOT (
-        delivery_delay_days > 100
-        AND review_score = 5
+        (delivery_delay_days > 100 AND review_score = 5)
+        OR
+        (delivery_delay_days < -100 AND review_score = 1)
     )
 )
 
@@ -55,9 +56,4 @@ SELECT
 FROM filtered_deliveries;
 """
 
-run_query(
-    "Overall Late Delivery Rate",
-    sql,
-    export_csv=True,
-    filename="late_delivery_rate.csv",
-)
+run_query("Overall Late Delivery Rate", sql)
