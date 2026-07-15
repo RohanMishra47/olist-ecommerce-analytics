@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 05_top_sellers_revenue.py
+# Script: top_sellers_revenue.py
 # Objective: Top sellers revenue analysis for Olist E-Commerce dataset
 # =========================================================================
 

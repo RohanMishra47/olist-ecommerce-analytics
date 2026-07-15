@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 07_monthly_growth.py
+# Script: monthly_growth.py
 # Objective: Calculate monthly growth in GMV for Olist E-Commerce dataset
 # =========================================================================
 

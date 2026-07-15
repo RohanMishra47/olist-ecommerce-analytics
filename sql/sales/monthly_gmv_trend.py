@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 03_monthly_gmv_trend.py
+# Script: monthly_gmv_trend.py
 # Objective: Monthly GMV trend analysis for Olist E-Commerce dataset
 # =========================================================================
 

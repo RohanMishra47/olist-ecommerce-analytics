@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 01_summary_metrics.py
+# Script: summary_metrics.py
 # Objective: Summary metrics for Olist E-Commerce dataset
 # =========================================================================
 

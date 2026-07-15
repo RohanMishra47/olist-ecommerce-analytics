@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Reviews
-# Script: 08_review_score_distribution.py
+# Script: review_score_distribution.py
 # Objective: Review score distribution analysis for Olist E-Commerce dataset
 # =========================================================================
 

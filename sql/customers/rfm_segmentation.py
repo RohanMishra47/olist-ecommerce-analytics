@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Customers
-# Script: 09_rfm_segmentation.py
+# Script: rfm_segmentation.py
 # Objective: Calculate RFM (Recency, Frequency, Monetary) metrics
 # for each unique customer in the Olist E-Commerce dataset
 # =========================================================================

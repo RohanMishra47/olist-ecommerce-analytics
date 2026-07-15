@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Logistics
-# Script: 01_late_delivery_rate.py
+# Script: late_delivery_rate.py
 # Objective: Calculate the overall late delivery rate for
 # delivered orders after excluding extreme delivery delay outliers
 # in the Olist E-Commerce dataset
@@ -59,5 +59,5 @@ run_query(
     "Overall Late Delivery Rate",
     sql,
     export_csv=True,
-    filename="01_late_delivery_rate.csv",
+    filename="late_delivery_rate.csv",
 )

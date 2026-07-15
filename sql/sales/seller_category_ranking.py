@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 08_seller_category_ranking.py
+# Script: seller_category_ranking.py
 # Objective: Rank sellers within each product category
 # by revenue for Olist E-Commerce dataset
 # ===================================================================

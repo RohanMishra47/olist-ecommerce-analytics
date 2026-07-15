@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 02_order_status_distribution.py
+# Script: order_status_distribution.py
 # Objective: Order status distribution analysis for Olist E-Commerce dataset
 # =========================================================================
 

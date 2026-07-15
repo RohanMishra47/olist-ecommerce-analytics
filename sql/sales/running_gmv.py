@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 06_running_gmv.py
+# Script: running_gmv.py
 # Objective: Calculate running GMV for Olist E-Commerce dataset
 # =========================================================================
 

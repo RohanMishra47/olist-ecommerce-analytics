@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Finances
-# Script: 07_payment_type_analysis.py
+# Script: payment_type_analysis.py
 # Objective: Payment type analysis for Olist E-Commerce dataset
 # =========================================================================
 

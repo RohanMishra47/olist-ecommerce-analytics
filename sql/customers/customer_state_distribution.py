@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Customers
-# Script: 06_customer_state_distribution.py
+# Script: customer_state_distribution.py
 # Objective: Customer state distribution analysis for Olist E-Commerce dataset
 # =========================================================================
 

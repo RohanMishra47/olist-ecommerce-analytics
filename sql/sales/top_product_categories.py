@@ -2,7 +2,7 @@
 # Olist E-Commerce SQL Analysis
 # Database: olist_ecommerce.db
 # Domain: Sales
-# Script: 04_top_product_categories.py
+# Script: top_product_categories.py
 # Objective: Top product categories analysis for Olist E-Commerce dataset
 # =========================================================================
 
