@@ -211,22 +211,91 @@ WITH customer_rfm AS (
     WHERE o.order_status = 'delivered'
 
     GROUP BY c.customer_unique_id
+),
+
+rfm_base AS (
+
+    SELECT
+        customer_unique_id,
+
+        CAST(
+            julianday('2018-10-17') -
+            julianday(last_order_date)
+            AS INTEGER
+        ) AS recency,
+
+        frequency,
+
+        monetary
+
+    FROM customer_rfm
+),
+
+rfm_scores AS (
+
+    SELECT
+        *,
+
+        6 - NTILE(5) OVER (ORDER BY recency ASC) AS r_score,
+
+        NTILE(5) OVER (ORDER BY frequency ASC) AS f_score,
+
+        NTILE(5) OVER (ORDER BY monetary ASC) AS m_score
+
+    FROM rfm_base
 )
 
 SELECT
     customer_unique_id,
 
-    CAST(
-        julianday('2018-10-17') -
-        julianday(last_order_date)
-        AS INTEGER
-    ) AS recency,
+    recency,
 
     frequency,
 
-    monetary
+    monetary,
 
-FROM customer_rfm;
+    r_score,
+
+    f_score,
+
+    m_score,
+
+    CASE
+
+        WHEN r_score >= 4
+         AND f_score >= 4
+         AND m_score >= 4
+        THEN 'Champions'
+
+        WHEN r_score >= 3
+         AND f_score >= 4
+        THEN 'Loyal Customers'
+
+        WHEN r_score >= 4
+         AND f_score BETWEEN 2 AND 3
+        THEN 'Potential Loyalists'
+
+        WHEN r_score >= 4
+         AND f_score = 1
+        THEN 'Recent Customers'
+
+        WHEN r_score = 3
+         AND f_score BETWEEN 2 AND 3
+        THEN 'Need Attention'
+
+        WHEN r_score <= 2
+         AND f_score >= 3
+        THEN 'At Risk'
+
+        WHEN r_score <= 2
+         AND f_score <= 2
+        THEN 'Lost Customers'
+
+        ELSE 'Others'
+
+    END AS rfm_segment
+
+FROM rfm_scores;
 """
 run_query(
     "Customer RFM Export", sql2, export_csv=True, filename="dim_customers_rfm.csv"
