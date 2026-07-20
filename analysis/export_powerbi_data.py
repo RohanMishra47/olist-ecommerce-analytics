@@ -140,7 +140,69 @@ SELECT
     END AS shipping_type,
 
     product_id,
+
     product_category,
+
+    CASE
+        WHEN product_category = 'health_beauty'
+            THEN 'Health & Beauty'
+
+        WHEN product_category = 'watches_gifts'
+            THEN 'Watches & Gifts'
+
+        WHEN product_category = 'bed_bath_table'
+            THEN 'Bed, Bath & Table'
+
+        WHEN product_category = 'sports_leisure'
+            THEN 'Sports & Leisure'
+
+        WHEN product_category = 'computers_accessories'
+            THEN 'Computer Accessories'
+
+        WHEN product_category = 'furniture_decor'
+            THEN 'Furniture & Decor'
+
+        WHEN product_category = 'housewares'
+            THEN 'Housewares'
+
+        WHEN product_category = 'cool_stuff'
+            THEN 'Cool Stuff'
+
+        WHEN product_category = 'auto'
+            THEN 'Automotive'
+
+        WHEN product_category = 'toys'
+            THEN 'Toys'
+
+        WHEN product_category = 'home_confort_2'
+            THEN 'Home Comfort'
+
+        WHEN product_category = 'flowers'
+            THEN 'Flowers'
+
+        WHEN product_category = 'furniture_mattress_and_upholstery'
+            THEN 'Furniture, Mattresses & Upholstery'
+
+        WHEN product_category = 'christmas_supplies'
+            THEN 'Christmas Supplies'
+
+        WHEN product_category = 'diapers_and_hygiene'
+            THEN 'Diapers & Hygiene'
+
+        WHEN product_category = 'cds_dvds_musicals'
+            THEN 'CDs, DVDs & Musicals'
+
+        WHEN product_category = 'signaling_and_security'
+            THEN 'Signaling & Security'
+
+        WHEN product_category = 'food_drink'
+            THEN 'Food & Drink'
+
+        WHEN product_category = 'electronics'
+            THEN 'Electronics'
+
+        ELSE product_category
+    END AS product_category_display,
 
     price,
     freight_value,
