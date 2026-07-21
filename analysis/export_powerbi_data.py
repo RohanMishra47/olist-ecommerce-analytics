@@ -43,7 +43,32 @@ Project Pipeline:
 from helper.utils import run_query
 
 sql1 = """
-WITH orders_clean AS (
+WITH reviews_deduplicated AS (
+
+    SELECT
+        order_id,
+        review_score
+
+    FROM (
+
+        SELECT
+            order_id,
+            review_score,
+            review_answer_timestamp,
+
+            ROW_NUMBER() OVER (
+                PARTITION BY order_id
+                ORDER BY review_answer_timestamp DESC
+            ) AS rn
+
+        FROM olist_order_reviews_dataset
+
+    )
+
+    WHERE rn = 1
+
+),
+orders_clean AS (
 
     SELECT
         o.order_id,
@@ -106,7 +131,7 @@ WITH orders_clean AS (
     JOIN olist_sellers_dataset AS s
         ON oi.seller_id = s.seller_id
 
-    LEFT JOIN olist_order_reviews_dataset AS r
+    LEFT JOIN reviews_deduplicated AS r
         ON o.order_id = r.order_id
 
     WHERE o.order_status = 'delivered'
